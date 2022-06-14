@@ -10,50 +10,54 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+               Container(
+                 height: 50,
+                 width: double.infinity,
+                 child: Row(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Expanded(
+                       child: Padding(
+                         padding: const EdgeInsets.all(8.0),
+                         child: Image.asset("assets/logo/Instagram_logo.png"),
+                       ),
+                     ),
+                     Expanded(
+                       child: Padding(
+                         padding: const EdgeInsets.all(8.0),
+                       ),
+                     ),
+                     Expanded(
+                       child: Padding(
+                         padding: const EdgeInsets.all(8.0),
+                         child: Row(
+                           children: [
+                             Image.asset("assets/logo/Ass Icon Filled.png"),
+                             Image.asset("assets/logo/"),
+                             Image.asset("assets/logo/"),
+                           ],
+                         ),
+                       ),
+                     ),
+                   ],
+                 ),
+               ),
 
-        title: Text(widget.title),
-      ),
-      body: Center(
-
-        child: Column(
-
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
